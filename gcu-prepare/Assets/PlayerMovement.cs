@@ -6,21 +6,36 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rb;
     public float forwardForce = 2000f;
     public float sidewaysForce = 500f;
+    private bool dKey = false;
+    private bool aKey = false;
+
+    void Update()
+    {
+        if(Input.GetKey("d")) // If the player is pressing the "d" key
+        {
+            dKey = true;
+        } else dKey = false;
+
+        if(Input.GetKey("a")) // If the player is pressing the "a" key
+        {
+            aKey = true;
+        } else aKey = false;
+    }
 
     // We marked this as "Fixed"Update because we
     // are using it to mess with physics.
     void FixedUpdate()
     {
         rb.AddForce(0, 0, forwardForce * Time.deltaTime); // Add a forward force
-    
-        if(Input.GetKey("d")) // If the player is pressing the "d" key
+
+        if(dKey) //check if the player is moving right
         {
-            rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0); // Add a force to right
+            rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0);// Add a force to the right
         }
 
-        if(Input.GetKey("a")) // If the player is pressing the "s" key
+        if(aKey) //check if the player is moving left
         {
-            rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0); // Add a force to left
+            rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0);// Add a force to the left
         }
     }
 }

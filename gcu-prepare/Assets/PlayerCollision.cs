@@ -1,15 +1,16 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerCollision : MonoBehaviour
 {
     public PlayerMovement movement;
+    public static bool canMove = true;
 
     void OnCollisionEnter(Collision collisionInfo)
     {
         if(collisionInfo.collider.tag == "Obstacle")
         {
-            movement.enabled = false;
-            Debug.Log("We hit an obstacle!");
+            canMove = false;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 

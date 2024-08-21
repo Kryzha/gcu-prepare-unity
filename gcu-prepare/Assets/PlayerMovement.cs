@@ -31,16 +31,16 @@ public class PlayerMovement : MonoBehaviour
            PlayerCollision.canMove = true;
         }
         if(PlayerCollision.canMove){
-            rb.AddForce(0, 0, forwardForce * Time.deltaTime); // Add a forward force
+            rb.AddForce(0, 0, forwardForce * Time.deltaTime ); // Add a forward force
 
             if(dKey) //check if the player is moving right
             {
-                rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0);// Add a force to the right
+                rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);// Add a force to the right
             }
 
             if(aKey) //check if the player is moving left
             {
-                rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0);// Add a force to the left
+                rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);// Add a force to the left
             }
         } 
     }

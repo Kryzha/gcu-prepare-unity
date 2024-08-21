@@ -1,17 +1,18 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    bool gameHasEnded = false;
+    public static bool gameHasEnded = false;
     public float delayTime = 2f;
 
-    public void GameOver()
+    public void EndGame()
     {
         if(gameHasEnded == false)
         {
             gameHasEnded = true;
-            Debug.Log("Game Over");
+            PlayerCollision.canMove = false;
             Invoke("Restart", delayTime);
         }
     }
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         PlayerCollision.canMove = true;
+        gameHasEnded = false;
     }
 
 }

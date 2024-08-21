@@ -26,10 +26,6 @@ public class PlayerMovement : MonoBehaviour
     // are using it to mess with physics.
     void FixedUpdate()
     {
-        if(dKey || aKey)
-        {
-           PlayerCollision.canMove = true;
-        }
         if(PlayerCollision.canMove){
             rb.AddForce(0, 0, forwardForce * Time.deltaTime ); // Add a forward force
 
@@ -41,6 +37,11 @@ public class PlayerMovement : MonoBehaviour
             if(aKey) //check if the player is moving left
             {
                 rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);// Add a force to the left
+            }
+
+            if(rb.position.y < -1f)
+            {
+                FindObjectOfType<GameManager>().GameOver();
             }
         } 
     }

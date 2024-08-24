@@ -3,25 +3,31 @@ using UnityEngine.UI;
 
 public class HighScore : MonoBehaviour
 {
-    public Text currentScoreText;
-    public Text highScoreText;
-    public int highScore;
-    public int currentScore;
+    public Text currentScore;
+    public Text highScore;
+
+    void Start()
+    {
+        highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+    }
 
     public void RollDice()
     {
-        currentScore = Random.Range(0,12);
-        highScore = currentScore;
-        if(currentScore > highScore)
+        int number = Random.Range(1,12);
+        currentScore.text = number.ToString();
+
+        if(number > PlayerPrefs.GetInt("HighScore", 0))
         {
-            highScore = currentScore;
-            highScoreText.text = highScore.ToString("0");
+            PlayerPrefs.SetInt("HighScore", number);
+            highScore.text = number.ToString();
         }
     }
 
     public void Reset()
     {
-        currentScoreText.text = "0";
-        highScoreText.text = "XX";
+
+        PlayerPrefs.DeleteAll();
+        highScore.text = "0";
+        
     }
 }

@@ -11,6 +11,7 @@ public class PlayerCollision : MonoBehaviour
         {
             canMove = false;
             FindObjectOfType<GameManager>().EndGame();
+            FindObjectOfType<AudioManager>().Play("Death");
         }
     }
 

@@ -6,5 +6,7 @@ public class EndTrigger : MonoBehaviour
     void OnTriggerEnter()
     {
         gameManager.CompleteLevel();
+        FindObjectOfType<AudioManager>().Play("LevelComplete");
+
     }
 }

@@ -14,5 +14,4 @@ public class PlayerCollision : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("Death");
         }
     }
-
 }

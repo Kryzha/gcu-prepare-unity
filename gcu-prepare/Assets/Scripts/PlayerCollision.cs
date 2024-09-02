@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PlayerCollision : MonoBehaviour
 {
+    public GameObject destroyedVersion;
     public PlayerMovement movement;
     public static bool canMove = true;
 

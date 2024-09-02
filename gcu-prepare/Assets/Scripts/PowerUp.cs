@@ -25,7 +25,7 @@ public class PowerUp : MonoBehaviour
         GetComponent<SphereCollider>().enabled = false;
 
         yield return new WaitForSeconds(duration);
-        player.transform.localScale /= multiplier;
+        player.transform.localScale *= multiplier;
     
         Destroy(gameObject);
     }

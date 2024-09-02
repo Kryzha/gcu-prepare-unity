@@ -975,6 +975,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1914684794434102817, guid: e8b672bc4763d6243b18f29f2656d13f, type: 3}
+      propertyPath: destroyedVersion
+      value: 
+      objectReference: {fileID: 2020181056451113803, guid: 00f1ac5d3066a80429562551be36b831, type: 3}
     - target: {fileID: 2785179326708506875, guid: e8b672bc4763d6243b18f29f2656d13f, type: 3}
       propertyPath: m_Name
       value: Player

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using EZCameraShake;
 public class PlayerCollision : MonoBehaviour
 {
     public GameObject destroyedVersion;
@@ -13,6 +14,7 @@ public class PlayerCollision : MonoBehaviour
             canMove = false;
             FindObjectOfType<GameManager>().EndGame();
             FindObjectOfType<AudioManager>().Play("Death");
+            CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, 1f);
         }
     }
 }
